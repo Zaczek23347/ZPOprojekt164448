@@ -17,7 +17,6 @@ namespace Zabiegi_SalonFryzjerski.config
 
         private AppConfig()
         {
-            // Tutaj możesz zmieniać ścieżki w razie potrzeby
             SciezkaZabiegi = "zabiegi.json";
             SciezkaWizyty = "wizyty.json";
         }
