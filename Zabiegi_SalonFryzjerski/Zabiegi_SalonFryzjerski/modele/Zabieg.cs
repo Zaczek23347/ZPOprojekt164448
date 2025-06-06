@@ -11,6 +11,6 @@ namespace Zabiegi_SalonFryzjerski.modele
         public int ID { get; set; }
         public string Nazwa { get; set; }
         public decimal Cena { get; set; }
-        public int CzasTrwaniaMinut { get; set; }
+        public int CzasTrwaniaMinuty { get; set; }
     }
 }

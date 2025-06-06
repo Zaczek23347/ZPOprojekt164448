@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Zabiegi_SalonFryzjerski
 {
-    public partial class Form1 : Form
+    public partial class FormWizyty : Form
     {
-        public Form1()
+        public FormWizyty()
         {
             InitializeComponent();
         }
