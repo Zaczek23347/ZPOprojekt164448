@@ -29,21 +29,32 @@ namespace Zabiegi_SalonFryzjerski
 
         private void buttonZapiszWizyte_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxImie.Text) || comboBoxZabieg.SelectedItem == null)
-            {
-                MessageBox.Show("Wprowadź imię i wybierz zabieg.");
-                return;
+            try
+    {
+                if (string.IsNullOrWhiteSpace(textBoxImie.Text))
+                    throw new BrakDanychException("Imię klienta jest wymagane.");
+
+                if (comboBoxZabieg.SelectedItem == null)
+                    throw new BrakDanychException("Musisz wybrać zabieg.");
+
+                var wizyta = new Wizyta
+                {
+                    ImieKlienta = textBoxImie.Text,
+                    ZabiegID = (int)comboBoxZabieg.SelectedValue,
+                    DataWizyty = dateTimePickerData.Value
+                };
+
+                _wizytaRepo.Dodaj(wizyta);
+                MessageBox.Show("Wizyta zapisana!");
             }
-
-            var wizyta = new Wizyta
+            catch (BrakDanychException ex)
             {
-                ImieKlienta = textBoxImie.Text,
-                ZabiegID = (int)comboBoxZabieg.SelectedValue,
-                DataWizyty = dateTimePickerData.Value
-            };
-
-            _wizytaRepo.Dodaj(wizyta);
-            MessageBox.Show("Wizyta zapisana!");
+                MessageBox.Show($"Błąd danych: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd krytyczny", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
