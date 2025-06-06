@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Zabiegi_SalonFryzjerski.modele;
+using Zabiegi_SalonFryzjerski.config;
 
 
 namespace Zabiegi_SalonFryzjerski
@@ -20,7 +21,7 @@ namespace Zabiegi_SalonFryzjerski
         public FormZabiegi()
         {
             InitializeComponent();
-            _repozytorium = new ZabiegHandler("zabiegi.json");
+            _repozytorium = new ZabiegHandler(AppConfig.Instancja.SciezkaZabiegi);
             OdswiezListe();
         }
 
@@ -74,6 +75,12 @@ namespace Zabiegi_SalonFryzjerski
                 textBoxCena.Text = zabieg.Cena.ToString();
                 textBoxCzas.Text = zabieg.CzasTrwaniaMinuty.ToString();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormWizyty formWizyty = new FormWizyty();
+            formWizyty.ShowDialog();
         }
     }
 }

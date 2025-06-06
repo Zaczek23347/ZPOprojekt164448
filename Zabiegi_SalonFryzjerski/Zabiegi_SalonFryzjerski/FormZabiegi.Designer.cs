@@ -39,6 +39,7 @@
             this.buttonZapisz = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Zabiegi = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,11 +139,22 @@
             this.Zabiegi.TabIndex = 10;
             this.Zabiegi.Text = "Zabiegi";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(715, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Wizyty";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormZabiegi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Zabiegi);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonZapisz);
@@ -175,5 +187,6 @@
         private System.Windows.Forms.Button buttonZapisz;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label Zabiegi;
+        private System.Windows.Forms.Button button1;
     }
 }
